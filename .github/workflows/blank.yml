@@ -1,0 +1,34 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "dev" branch
+  push:
+    branches: [ "dev" ] # dev 브랜치에 push 될 때 workflow 실행
+  pull_request:
+    branches: [ "dev" ] # dev 브랜치로의 PR 생성 시 워크플로우 실행
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest # 최신 우분투 환경에서 실행
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4 # 코드 체크아웃
+
+      - name: Use Node.js '18.x'  # 지정된 Node.js 버전 사용
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'   # 설정할 Node.js 버전
+          cache: 'npm'  # 의존성 캐싱 활성화
+      - run: npm install  # 의존성 설치 (CI 환경에서 npm ci는 npm install보다 빠르고 안정적)
+      - run: npm run build --if-present  # 빌드 실행 (빌드 스크립트가 있을 때만 실행)
