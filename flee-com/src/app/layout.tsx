@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        루트 레이아웃
+        <p>루트 레이아웃</p>
         children : {children}
       </body>
     </html>
