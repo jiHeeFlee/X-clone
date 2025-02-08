@@ -8,7 +8,7 @@ export default function Home(){
     return (
         <>
             <div className={styles.left}>
-                <Image src={jLogo} alt='logo'/>
+                <Image src={jLogo} alt='logo' style={{width:'300px', height:'300px'}}/>
             </div>
             <div className={styles.right}>
                 <h1>지금 일어나고 있는 일_비포로그인</h1>
