@@ -2,7 +2,7 @@
 // use client : 클라이언트 컴포넌트
 // 클라이언트 컴포넌트도 서버에서 렌더링됨. 그래서 SSR도 됨. 헷갈리면 안됨
 
-import style from '@/app/(beforeLogin)/i/flow/login/login.module.css';
+import style from '@/app/(beforeLogin)/@modal/(.)i/flow/login/login.module.css';
 import {useState} from "react"; // 클라이언트 컴포넌트에서만 작동
 
 export default function LoginModal(){
